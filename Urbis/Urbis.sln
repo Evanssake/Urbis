@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urbis.CSharp.Plugins", "Urbis.CSharp.Plugins.csproj", "{97FB0653-A444-F20B-C471-492A2EA3BDDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urbis.CSharp", "Urbis.CSharp.csproj", "{0E13D409-9F12-B56A-46BD-CD4AA2959E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urbis.CSharp.Editor", "Urbis.CSharp.Editor.csproj", "{3264C075-8547-7865-5F1B-0869F4C5E443}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97FB0653-A444-F20B-C471-492A2EA3BDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FB0653-A444-F20B-C471-492A2EA3BDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FB0653-A444-F20B-C471-492A2EA3BDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FB0653-A444-F20B-C471-492A2EA3BDDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E13D409-9F12-B56A-46BD-CD4AA2959E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E13D409-9F12-B56A-46BD-CD4AA2959E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E13D409-9F12-B56A-46BD-CD4AA2959E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E13D409-9F12-B56A-46BD-CD4AA2959E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3264C075-8547-7865-5F1B-0869F4C5E443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3264C075-8547-7865-5F1B-0869F4C5E443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3264C075-8547-7865-5F1B-0869F4C5E443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3264C075-8547-7865-5F1B-0869F4C5E443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
