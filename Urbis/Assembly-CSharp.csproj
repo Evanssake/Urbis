@@ -82,6 +82,7 @@
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+     <Compile Include="Assets\TileMapMouse.cs" />
      <Compile Include="Assets\Tutorials\TileMap.cs" />
      <Compile Include="Assets\Tutorials\TileMouseOver.cs" />
      <Compile Include="Assets\map_interact.cs" />
