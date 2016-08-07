@@ -12,10 +12,56 @@ public class TileMap : MonoBehaviour {
 	public float tileSize = 1.0f;
 	public float max_height = 1.0f;
 	public float min_height = -1.0f;
+	public Texture2D terrainTiles;
+	public int tileResolution;
 
 	// Use this for initialization
 	void Start() {
 		BuildMesh();
+	}
+
+	Color[][] ChopUpTiles() {
+
+		int numTilesPerRow = terrainTiles.width / tileResolution;
+		int numRows = terrainTiles.height / tileResolution;
+
+		Color[][] tiles = new Color[numTilesPerRow*numRows][];
+
+		for (int y = 0; y < numRows; y++) {
+			for (int x = 0; x < numTilesPerRow; x++) {
+				tiles[y*numTilesPerRow + x] = terrainTiles.GetPixels (x * tileResolution, y*tileResolution, tileResolution, tileResolution);
+			}
+		}
+
+		return tiles;
+	}
+
+	void BuildTexture() {
+		//int tileResolustion = terrainTiles.height;
+		//int numTiles = terrainTiles.width / tileResolustion;
+
+		int text_w = size_x * tileResolution;
+		int text_h = size_z * tileResolution;
+		Texture2D texture = new Texture2D (text_w, text_h);
+
+		Color[][] tiles = ChopUpTiles();
+
+		for(int y=0; y < size_z; y++) {
+			for(int x=0; x < size_x; x++) {
+				int terrainOffset = Random.Range (0, 4) * tileResolution;
+				Color[] p = tiles [Random.Range (0, 4)];
+				texture.SetPixels (x*tileResolution, y*tileResolution, tileResolution, tileResolution, p);
+			}
+		}
+
+		texture.filterMode = FilterMode.Point;
+		texture.wrapMode = TextureWrapMode.Clamp;
+		texture.Apply ();
+
+		MeshRenderer mesh_renderer = GetComponent<MeshRenderer> ();
+		mesh_renderer.sharedMaterial.mainTexture = texture;
+
+		Debug.Log ("Done Texture");
 	}
 
 	public void BuildMesh() {
@@ -39,7 +85,7 @@ public class TileMap : MonoBehaviour {
 			for (x=0; x < vsize_x; x++) {
 				vertices[ z * vsize_x + x ] = new Vector3( x * tileSize, Random.Range(min_height, max_height), z * tileSize );
 				normals[ z * vsize_x + x ] = Vector3.up;
-				uv[ z * vsize_x + x ] = new Vector2( (float)x / vsize_x, (float)z / vsize_z );
+				uv[ z * vsize_x + x ] = new Vector2( (float)x / size_x, (float)z / size_z );
 			}
 		}
 		Debug.Log("Done Verts!");
@@ -75,5 +121,7 @@ public class TileMap : MonoBehaviour {
 		mesh_filter.mesh = mesh;
 		mesh_collider.sharedMesh = mesh;
 		Debug.Log("Done Mesh!");
+
+		BuildTexture ();
 	}
 }
